@@ -1,0 +1,23 @@
+<h2 class="text-center mt-4 mb-4"><%= @article.title %></h2>
+
+<div class="row justify-content-md-center">
+    <div class="col-10">
+        <div class="card m-2 shadow-sm">
+            <div class="card-body">
+                <div class="card-text"><%= simple_format(@article.description)  %></div>
+                
+                <div class="text-center">
+                    <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-info" %>
+                    <%= button_to 'Delete', article_path(@article), method: :delete, class: "btn btn-outline-danger btn-delete" %>
+                </div>
+            </div>
+            <div class="card-footer text-muted text-center">
+                <div class="fst-italic">
+                    by Anton
+                </div>
+                <small>Created <%= time_ago_in_words(@article.created_at) %> ago,
+                edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+            </div>
+        </div>
+    </div>
+</div>
