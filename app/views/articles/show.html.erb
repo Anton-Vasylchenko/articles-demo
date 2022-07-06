@@ -13,7 +13,7 @@
             </div>
             <div class="card-footer text-muted text-center">
                 <div class="fst-italic">
-                    by Anton
+                    by <%= @article.user.username  if  @article.user %>
                 </div>
                 <small>Created <%= time_ago_in_words(@article.created_at) %> ago,
                 edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
