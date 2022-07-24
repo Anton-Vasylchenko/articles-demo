@@ -1,27 +1,3 @@
 <h1 class="text-center mt-4 mb-4">Listing all articles</h1>
 
-    <% @articles.each { |item| %>
-        <div class="row justify-content-md-center">
-            <div class="col-8">
-                <div class="card text-center m-2 shadow-sm">
-                    <div class="card-header fst-italic">
-                        by <%= item.user.username if item.user %>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><%= link_to item.title, article_path(item), class: "text-success" %></h5>
-                        <p class="card-text"><%= truncate(item.description, length: 100)  %></p>
-
-                        <%= link_to 'View', article_path(item), class: "btn btn-outline-success" %>
-                        <%= link_to 'Edit', edit_article_path(item), class: "btn btn-outline-info" %>
-
-                        <%= button_to 'Delete', article_path(item), method: :delete, class: "btn btn-outline-danger btn-delete" %>
-
-                    </div>
-                    <div class="card-footer text-muted">
-                        <small>Created <%= time_ago_in_words(item.created_at) %> ago,
-                        edited <%= time_ago_in_words(item.updated_at) %> ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <% } %>
+<%= render 'article' %>
