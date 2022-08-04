@@ -15,6 +15,11 @@
                 <div class="fst-italic">
                     by <%= @article.user.username  if  @article.user %>
                 </div>
+
+                <div class="small-user-image">
+                    <%= link_to user_avatar(@article.user), @article.user %>
+                </div>
+
                 <small>Created <%= time_ago_in_words(@article.created_at) %> ago,
                 edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
             </div>

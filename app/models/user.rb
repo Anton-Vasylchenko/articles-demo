@@ -1,12 +1,19 @@
-class User < ApplicationRecord
-        before_save { self.email = email.downcase }
+class User < ApplicationRecord        
+        before_save { 
+            self.email = email.downcase 
+            self.user_image = user_image.squish
+            
+            if user_image === ""
+                self.user_image = nil
+            end
+        }
 
         has_many :articles
 
         validates :username, presence: true,
             uniqueness: { case_sensitive: false },
-            length: {minimum: 3, maximum: 25}
-
+            length: {minimum: 3, maximum: 25}        
+        
         VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
         validates :email, presence: true,

@@ -1,0 +1,35 @@
+<h1 class="text-center mt-4 mb-4">Authors</h1>
+
+<div class="apple_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>
+
+<% @users.each { |item| %>
+        <div class="row justify-content-md-center">
+            <div class="col-8">
+                <div class="card text-center m-2 shadow-sm">
+                    <div class="card-header fst-italic">
+                        <%= link_to item.username, item %>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <div class="user-image">
+                                <%= user_avatar item %>
+                            </div>
+                        </h5>
+                        <p class="card-text"><%= pluralize(item.articles.count, "article") %></p>
+
+                        <%= link_to 'View', item, class: "btn btn-outline-success" %>
+                        <%= link_to 'Edit profile', edit_user_path(item), class: "btn btn-outline-info" %>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>Joined <%= time_ago_in_words(item.created_at) %></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+
+<div class="apple_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>
