@@ -5,11 +5,13 @@
         <div class="card m-2 shadow-sm">
             <div class="card-body">
                 <div class="card-text"><%= simple_format(@article.description)  %></div>
-                
-                <div class="text-center">
-                    <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-info" %>
-                    <%= button_to 'Delete', article_path(@article), method: :delete, class: "btn btn-outline-danger btn-delete" %>
-                </div>
+                                
+                <% if logged_in? && (@article.user == current_user || current_user.admin?) %>             
+                    <div class="text-center">
+                        <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-info" %>
+                        <%= button_to 'Delete', article_path(@article), method: :delete, class: "btn btn-outline-danger btn-delete" %>
+                    </div>
+                <% end %>            
             </div>
             <div class="card-footer text-muted text-center">
                 <div class="fst-italic">

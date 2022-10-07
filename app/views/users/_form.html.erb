@@ -44,3 +44,9 @@
 <div class="text-center mt-4 fw-bold">
     <%= link_to '[ Cancel and return to the articles page ]', articles_path %>
 </div>
+
+<% if @user.username? %>
+    <div class="text-center">
+        <%= link_to 'Delete profile', user_path(@user), class: "del-profile", method: :delete, data: {confirm: "Are you sure?"} %>
+    </div>
+<% end %>

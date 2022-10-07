@@ -1,14 +1,17 @@
 class User < ApplicationRecord        
         before_save { 
-            self.email = email.downcase 
-            self.user_image = user_image.squish
+            self.email = email.downcase
+            
+            if self.user_image.nil? == false
+                self.user_image = user_image.squish
+            end
             
             if user_image === ""
                 self.user_image = nil
             end
         }
 
-        has_many :articles
+        has_many :articles, dependent: :destroy
 
         validates :username, presence: true,
             uniqueness: { case_sensitive: false },
