@@ -1,7 +1,7 @@
 <h1 class="text-center mt-4 mb-4"><%= @user.username %>'s profile</h1>
 
-<div class="user-image">
-    <%= user_avatar @user %>
+<div class="user-image">    
+    <%= add_image(@user) %>    
 </div>
 
 <% if logged_in? && (@user == current_user || current_user.admin?) %>

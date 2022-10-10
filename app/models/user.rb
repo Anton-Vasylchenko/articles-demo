@@ -1,15 +1,17 @@
-class User < ApplicationRecord        
+class User < ApplicationRecord                
+        include ImageUploader::Attachment(:image)
+
         before_save { 
             self.email = email.downcase
             
-            if self.user_image.nil? == false
-                self.user_image = user_image.squish
-            end
+            # if self.image_data.nil? == false
+            #     self.image_data = image_data.squish
+            # end
             
-            if user_image === ""
-                self.user_image = nil
-            end
-        }
+            # if image_data === ""
+            #     self.image_data = nil
+            # end
+        }        
 
         has_many :articles, dependent: :destroy
 

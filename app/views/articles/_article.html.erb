@@ -17,8 +17,7 @@
                             (item.user == current_user || current_user.admin?) %>
 
                             <%= link_to 'Edit', edit_article_path(item), class: "btn btn-outline-info" %>
-                            <%= link_to 'Delete', article_path(item), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-outline-danger btn-delete" %>
-                            
+                            <%= link_to 'Delete', article_path(item), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-outline-danger btn-delete" %>                            
                         <% end %>
                     </div>
                     <div class="card-footer text-muted">
@@ -31,5 +30,5 @@
     <% } %>
 
 <% if @articles.empty? %>
-    <p class="text-center text-secondary">This user has not created any article yet</p>
+    <p class="text-center text-secondary">No articles have been created yet</p>
 <% end %>

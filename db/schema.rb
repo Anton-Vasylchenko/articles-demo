@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_084626) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_10_114110) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.text "image_data"
   end
 
   create_table "users", force: :cascade do |t|
@@ -25,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_084626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.string "user_image"
+    t.string "image_data"
     t.boolean "admin", default: false
   end
 

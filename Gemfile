@@ -42,6 +42,10 @@ gem 'tzinfo-data', '~> 1.2021', '>= 1.2021.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem 'image_processing', '~> 1.12', '>= 1.12.2'
+gem "shrine", "~> 3.0"
+gem "shrine-cloudinary", "~> 1.1";
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -65,6 +69,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "dotenv-rails"
 end
 
 group :test do

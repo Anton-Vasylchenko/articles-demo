@@ -30,7 +30,7 @@
                 <%= f.label 'Image (optional)', class: "col-3 col-form-label fw-bold text-light" %>
 
                 <div class="col-9">
-                    <%= f.text_field :user_image, class: "form-control shadow", placeholder: "Enter image's url" %>
+                    <%= f.file_field :image, class: "form-control shadow", placeholder: "Enter image's url" %>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
     <%= link_to '[ Cancel and return to the articles page ]', articles_path %>
 </div>
 
-<% if @user.username? %>
+<% if logged_in? %>
     <div class="text-center">
         <%= link_to 'Delete profile', user_path(@user), class: "del-profile", method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
