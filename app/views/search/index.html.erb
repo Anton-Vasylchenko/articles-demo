@@ -1,16 +1,13 @@
-<h1 class="text-center mt-4 mb-4">Listing all articles</h1>
+<h1 class="search-title">Search result:</h1>
 
 <div class="apple_pagination">
     <%= will_paginate @articles, :container => false %>
 </div>
 
 <div class="row">
-    <%= render 'article' %>
+    <%= render 'articles/article' %>
 </div>
 
 <div class="apple_pagination">
     <%= will_paginate @articles, :container => false %>
 </div>
-
-
-

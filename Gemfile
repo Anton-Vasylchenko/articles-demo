@@ -84,3 +84,5 @@ group :production do
 end
 
 gem "bootstrap", "~> 5.1"
+
+gem "ransack", "~> 3.2"
