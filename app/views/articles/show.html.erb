@@ -1,15 +1,25 @@
-<h2 class="text-center mt-4 mb-4"><%= @article.title %></h2>
-
 <div class="row justify-content-md-center">    
+    <div class="col-10 mt-1">
+        <div class="card m-2 shadow-sm">
+            <h2 class="text-center m-2 article-title"><%= @article.title %></h2>
+        </div>
+    </div>
+
     <div class="col-10">        
         <div class="card m-2 shadow-sm">
-        
+                    
             <div class="article-image">
                 <%= add_image(@article) %> 
             </div>
 
             <div class="card-body">
                 <div class="card-text"><%= @article.description  %></div>
+
+                <% if @article.categories.any? %>
+                    <div class="mt-4">
+                        <%= render @article.categories %>                
+                    </div>
+                <% end %>
                                 
                 <% if logged_in? && (@article.user == current_user || current_user.admin?) %>             
                     <div class="text-center">

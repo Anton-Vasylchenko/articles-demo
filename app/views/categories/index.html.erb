@@ -1,0 +1,22 @@
+<h1 class="text-center mt-4 mb-4">Categories</h1>
+
+<div class="apple_pagination">
+    <%= will_paginate @categories, :container => false %>
+</div>
+
+<div class="row">
+<% @categories.each { |item| %>
+    <div class="col-3 justify-content-md-center">
+        <div class="category-item card text-center m-2 shadow-sm">                    
+            <div class="card-article-body card-body">                        
+                <h5 class="card-title"><%= link_to item.name, category_path(item), class: "text-success" %></h5>
+                <p class="card-text"><%= pluralize(item.articles.count, "article") %></p>
+            </div>            
+        </div>
+    </div>
+<% } %>
+</div>
+
+<% if @categories.empty? %>
+    <p class="text-center text-secondary">The list is empty</p>
+<% end %>
